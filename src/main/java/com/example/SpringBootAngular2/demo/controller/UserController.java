@@ -4,8 +4,6 @@ package com.example.SpringBootAngular2.demo.controller;
 
 import java.util.List;
 
-
-import org.junit.FixMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,6 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.SpringBootAngular2.demo.domain.UserDomain;
 import com.example.SpringBootAngular2.demo.service.UserService;
+
+
 
 @RestController
 public class UserController {

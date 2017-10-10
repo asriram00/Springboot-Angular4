@@ -16,17 +16,19 @@ public class UserDomain implements Serializable {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	private String name;
+	private String password;
 	private String des;
 	
 	public UserDomain() {
 
 	}
 	
-	public UserDomain(int id, String name, String des) {
+	public UserDomain(int id, String name, String des, String password) {
 		super();
 		this.id =id;
 		this.name = name;
 		this.des = des;
+		this.password = password;
 	}
 
 	public int getId() {
@@ -47,7 +49,14 @@ public class UserDomain implements Serializable {
 	public void setName(String name) {
 		this.name = name;
 	}
+	
+	public String getPassword() {
+		return password;
+	}
 
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
 	public String getDes() {
 		return des;

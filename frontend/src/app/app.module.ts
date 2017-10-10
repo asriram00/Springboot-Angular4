@@ -1,16 +1,25 @@
+import { UserserviceService } from './userservice.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { HttpModule, JsonpModule } from '@angular/http';
+
 
 import { AppComponent } from './app.component';
+import { UserListComponent } from './user-list/user-list.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    UserListComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    HttpModule,
+    JsonpModule
   ],
-  providers: [],
+  providers: [UserserviceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

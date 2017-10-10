@@ -45,3 +45,6 @@ Thumbs.db
 ### Target classpath ###
 target/
 
+javascript
+/node_modules
+
