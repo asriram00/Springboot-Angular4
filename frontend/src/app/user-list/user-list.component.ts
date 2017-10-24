@@ -1,25 +1,59 @@
-import { User } from './../user.model';
-import { UserserviceService } from './../userservice.service';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
-import { Component } from '@angular/core';
+import { DataServiceService } from './../service/data-service.service';
+import { UserserviceService } from './../service/userservice.service';
+import { User } from './../user.model';
+
 
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
   styleUrls: ['./user-list.component.css']
 })
-export class UserListComponent {
+export class UserListComponent implements OnInit {
   title = 'List of User name';
-  user = new User('', '');
-  users;
-  userService = new UserserviceService();
-  constructor(service : UserserviceService) {
-    this.users = service.getUsers();
+  user: User = new User('', '', '');
+  currentUser: User;
+  users: User[];
+  userService;
+  dataService;
+  errorMsg: String;
+  _router;
+  constructor(userService : UserserviceService, dataService : DataServiceService, private router: Router) {
+    this.userService = userService;
+    this.dataService = dataService;
+    this._router = router;
   };
+
   sumbitForm () {
-    console.log(this.user);
-    this.userService.addUser(JSON.stringify(this.user));
-    console.log(this.userService.getUsers());
-    this.users = this.userService.getUsers();
+    this.dataService.addUser(this.user)
+        .subscribe(
+          (respData) =>  {
+            this.users = respData
+            console.log(this.users);
+          },
+          (respError) => {
+            console.log(respError);
+            this.errorMsg = respError.status;
+          });
+    
+    // this.userService.addUser(this.user);
+    // this.users = this.userService.getUsers();
+  }
+  ngOnInit() {
+    console.log('LocalStorage:'+ localStorage.getItem('currentUser'));
+    this.dataService.fetchUsers()
+        .subscribe(
+          (respData) =>  {
+            this.users = respData
+            console.log(this.users);
+          },
+          (respError) => {
+            console.log(respError);
+            this.errorMsg = respError.status;
+          });
+    this.userService.currentUser.subscribe(currentUser => this.currentUser = currentUser)
   }
 }

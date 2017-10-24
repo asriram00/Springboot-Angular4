@@ -7,9 +7,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+
 @Entity
 public class UserDomain implements Serializable {
 	
+	
+
 	private static final long serialVersionUID = 1L;
 	
 	@Id
@@ -17,18 +20,32 @@ public class UserDomain implements Serializable {
 	private int id;
 	private String name;
 	private String password;
-	private String des;
+	private String comment;
+	private int enabled;
+	private boolean admin;
 	
+
 	public UserDomain() {
 
 	}
+	public UserDomain(UserDomain user) {
+		super();
+		this.id = user.id;
+		this.name = user.name;
+		this.comment = user.comment;
+		this.password = user.password;
+		this.enabled = user.enabled;
+		this.admin = user.admin;
+	}
 	
-	public UserDomain(int id, String name, String des, String password) {
+	public UserDomain(int id, String name, String comment, String password, int enabled, boolean admin) {
 		super();
 		this.id =id;
 		this.name = name;
-		this.des = des;
+		this.comment = comment;
 		this.password = password;
+		this.enabled = enabled;
+		this.admin = admin;
 	}
 
 	public int getId() {
@@ -57,14 +74,28 @@ public class UserDomain implements Serializable {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
-	public String getDes() {
-		return des;
+	
+	public String getComment() {
+		return comment;
 	}
 
-
-	public void setDes(String des) {
-		this.des = des;
+	public void setComment(String comment) {
+		this.comment = comment;
+	}
+	
+	public int getEnabled() {
+		return enabled;
+	}
+	
+	public void setEnabled(int enabled) {
+		this.enabled = enabled;
+	}
+	
+	public boolean isAdmin() {
+		return admin;
 	}
 
+	public void setAdmin(boolean admin) {
+		this.admin = admin;
+	}
 }

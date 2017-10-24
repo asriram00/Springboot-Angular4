@@ -1,0 +1,48 @@
+<div class="col-md-12">
+  <form (submit)="loginForm()" class="col-md-6">
+    <h4>User Login</h4>
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input id="name" name="name" class="form-control"
+            required minlength="4" forbiddenName="bob"
+            [(ngModel)]="user.name" #name="ngModel" 
+            type="text" placeholder="Enter User Name">
+      
+        <div *ngIf="name.invalid && (name.dirty || name.touched)"
+        class="alert alert-danger">
+      
+        <div *ngIf="name.errors.required">
+        Name is required.
+        </div>
+        <div *ngIf="name.errors.minlength">
+        Name must be at least 4 characters long.
+        </div>
+        <div *ngIf="name.errors.forbiddenName">
+        Name cannot be Bob.
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input id="password" name="password" class="form-control"
+            required minlength="4" forbiddenName="bob"
+            [(ngModel)]="user.password" #password="ngModel" id="password" 
+            type="password" placeholder="Enter Password">
+      
+        <div *ngIf="password.invalid && (password.dirty || password.touched)"
+        class="alert alert-danger">
+      
+        <div *ngIf="password.errors.required">
+          password is required.
+        </div>
+        <div *ngIf="password.errors.minlength">
+          password must be at least 4 characters long.
+        </div>
+        <div *ngIf="password.errors.forbiddenName">
+          password cannot be Bob.
+        </div>
+      </div>
+    </div>
+    <button class="btn btn-primary">Submit</button>
+  </form>
+</div>

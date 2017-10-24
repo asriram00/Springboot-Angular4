@@ -1,38 +1,82 @@
-<form (submit)="sumbitForm()" class="col-md-6">
-  <h4>Add User Form</h4>
-  <div class="form-group">
-    <label for="fullName">Name</label>
-    <input id="name" name="name" class="form-control"
-           required minlength="4" forbiddenName="bob"
-           [(ngModel)]="user.name" #name="ngModel" >
-    
-      <div *ngIf="name.invalid && (name.dirty || name.touched)"
-      class="alert alert-danger">
-    
-      <div *ngIf="name.errors.required">
-      Name is required.
-      </div>
-      <div *ngIf="name.errors.minlength">
-      Name must be at least 4 characters long.
-      </div>
-      <div *ngIf="name.errors.forbiddenName">
-      Name cannot be Bob.
-      </div>
-    
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="comment">Comment</label>
-    <textarea type="text" [(ngModel)]="user.comment" #comment="ngModel" name="comment" id="comment" col="30" rows="10" class="form-control"></textarea>
-  </div>
-  <button class="btn btn-primary">Submit</button>
-</form>
 
-<div class="col-md-6">
-  <ul>
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+    <a class="navbar-brand" routerLink="/list" routerLinkActive="active">User List</a>
+    <a class="navbar-brand" routerLink="/register" routerLinkActive="active">User Register</a>
+    <a class="navbar-brand" routerLink="/login" routerLinkActive="active">User Login</a>
+  <div class="collapse navbar-collapse">
+    <span class="navbar-text" *ngIf="currentUser">{{currentUser.name}}</span>
+  </div>
+<nav>
+<div class="col-md-12" *ngIf="_router.url === '/register'">
+    <form (submit)="sumbitForm()" class="col-md-6">
+      <h4>Add User Form</h4>
+      <div class="form-group">
+        <label for="fullName">Name</label>
+        <input id="name" name="name" class="form-control"
+              required minlength="4" forbiddenName="bob"
+              [(ngModel)]="user.name" #name="ngModel"
+              type="text" placeholder="Enter User Name">
+        
+          <div *ngIf="name.invalid && (name.dirty || name.touched)"
+          class="alert alert-danger">
+        
+          <div *ngIf="name.errors.required">
+          Name is required.
+          </div>
+          <div *ngIf="name.errors.minlength">
+          Name must be at least 4 characters long.
+          </div>
+          <div *ngIf="name.errors.forbiddenName">
+          Name cannot be Bob.
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input id="password" name="password" class="form-control"
+              required minlength="4" forbiddenName="bob"
+              [(ngModel)]="user.password" #password="ngModel" id="password" 
+              type="password" placeholder="Enter Password">
+        
+          <div *ngIf="password.invalid && (password.dirty || password.touched)"
+          class="alert alert-danger">
+        
+          <div *ngIf="password.errors.required">
+            password is required.
+          </div>
+          <div *ngIf="password.errors.minlength">
+            password must be at least 4 characters long.
+          </div>
+          <div *ngIf="password.errors.forbiddenName">
+            password cannot be Bob.
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="comment">Comment</label>
+        <textarea type="text" [(ngModel)]="user.comment" #comment="ngModel" name="comment" id="comment" col="30" rows="10" class="form-control"></textarea>
+      </div>
+      <button class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+<div class="col-md-12" *ngIf="_router.url === '/' || _router.url == '/list'">
+  <div *ngIf="currentUser">
+    <h2>Current User Details</h2>
+    <span>Name: {{currentUser.name}}</span><br>
+    <span>Comment: {{currentUser.comment}}</span>
+  </div>
+  <h2>User List</h2>
+  <ul *ngIf="errorMsg != 0">
     <li *ngFor= "let user of users"> 
-      {{user.name}}
-      {{user.comment}}
+      <a routerLink="/user/{{user.id}}">
+          {{user.name}}
+      </a> 
     </li>
   </ul>
+  <div *ngIf="errorMsg == 0">
+    {{errorMsg}}
+  </div>
 </div>
+
