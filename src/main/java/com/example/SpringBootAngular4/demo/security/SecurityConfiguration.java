@@ -1,4 +1,4 @@
-package com.example.SpringBootAngular2.demo.security;
+package com.example.SpringBootAngular4.demo.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

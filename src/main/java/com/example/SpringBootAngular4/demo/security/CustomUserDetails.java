@@ -1,4 +1,4 @@
-package com.example.SpringBootAngular2.demo.security;
+package com.example.SpringBootAngular4.demo.security;
 
 import java.util.Collection;
 import java.util.List;
@@ -8,7 +8,7 @@ import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.util.StringUtils;
 
-import com.example.SpringBootAngular2.demo.domain.UserDomain;
+import com.example.SpringBootAngular4.demo.domain.UserDomain;
 
 public class CustomUserDetails extends UserDomain implements UserDetails {	
 	

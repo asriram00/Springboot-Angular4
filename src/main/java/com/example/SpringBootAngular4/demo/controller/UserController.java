@@ -1,4 +1,4 @@
-package com.example.SpringBootAngular2.demo.controller;
+package com.example.SpringBootAngular4.demo.controller;
 
 
 
@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.SpringBootAngular2.demo.domain.UserDomain;
-import com.example.SpringBootAngular2.demo.service.UserService;
+import com.example.SpringBootAngular4.demo.domain.UserDomain;
+import com.example.SpringBootAngular4.demo.service.UserService;
 
 
 @RestController

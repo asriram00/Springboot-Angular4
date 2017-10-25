@@ -1,16 +1,20 @@
-package com.example.SpringBootAngular2.demo.service;
+package com.example.SpringBootAngular4.demo.service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.SpringBootAngular2.demo.domain.UserDomain;
-import com.example.SpringBootAngular2.demo.repo.UserRepository;
+import com.example.SpringBootAngular4.demo.domain.UserDomain;
+import com.example.SpringBootAngular4.demo.repo.UserRepository;
 
 @Service
 public class UserService {
+	
+	private static Logger  logger = LoggerFactory.getLogger(UserService.class);
 	
 	@Autowired
 	private UserRepository userRepository;
@@ -21,6 +25,7 @@ public class UserService {
 	
 
 	public List<UserDomain> showAllList() {
+		logger.debug("showing user list");
 		userList = new ArrayList<UserDomain>();
 		userRepository.findAll().forEach(userList :: add);
 		return userList;

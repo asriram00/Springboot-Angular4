@@ -1,4 +1,4 @@
-package com.example.SpringBootAngular2.demo.security;
+package com.example.SpringBootAngular4.demo.security;
 
 import java.util.List;
 
@@ -8,9 +8,9 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
 
-import com.example.SpringBootAngular2.demo.domain.UserDomain;
-import com.example.SpringBootAngular2.demo.repo.UserRepository;
-import com.example.SpringBootAngular2.demo.repo.UserRolesRepository;
+import com.example.SpringBootAngular4.demo.domain.UserDomain;
+import com.example.SpringBootAngular4.demo.repo.UserRepository;
+import com.example.SpringBootAngular4.demo.repo.UserRolesRepository;
 
 
 @Service("customUserDetailsService")

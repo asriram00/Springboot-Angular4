@@ -1,4 +1,4 @@
-package com.example.SpringBootAngular2.demo.domain;
+package com.example.SpringBootAngular4.demo.domain;
 
 import javax.persistence.*;
 
