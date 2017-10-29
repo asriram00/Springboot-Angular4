@@ -1,3 +1,4 @@
+import { AuthGuardService } from './service/auth-guard.service';
 import { HttpClient } from './service/HttpClient';
 import { AlertService } from './service/alert.service';
 import { DataServiceService } from './service/data-service.service';
@@ -26,7 +27,8 @@ import { UserLoginComponent } from './user-login/user-login.component';
     RouterModule.forRoot([
       { 
         path: '', 
-        component: UserLoginComponent
+        component: UserLoginComponent,
+        canActivate: [AuthGuardService]
       },
       { 
         path: 'login', 
@@ -34,15 +36,17 @@ import { UserLoginComponent } from './user-login/user-login.component';
       },
       {
         path: 'list', 
-        component: UserListComponent
+        component: UserListComponent,
+        canActivate: [AuthGuardService]
       },
       {
         path: '**',
-        component: UserListComponent
+        component: UserListComponent,
+        canActivate: [AuthGuardService]
       }
     ])
   ],
-  providers: [UserserviceService, DataServiceService, AlertService, HttpClient],
+  providers: [UserserviceService, DataServiceService, AlertService, HttpClient, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

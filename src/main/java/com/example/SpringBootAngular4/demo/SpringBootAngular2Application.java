@@ -9,7 +9,6 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
-@EnableJpaRepositories("com.example.SpringBootAngular2.demo.repo")
 public class SpringBootAngular2Application extends SpringBootServletInitializer {
 	
 	@Override

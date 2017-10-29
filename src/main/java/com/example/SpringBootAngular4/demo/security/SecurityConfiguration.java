@@ -42,9 +42,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         httpSecurity.csrf().disable();
 
     }
-
-    @Bean
-    public CustomFilter customFilter() {
-        return new CustomFilter();
-    }
+//
+//    @Bean
+//    public CustomFilter customFilter() {
+//        return new CustomFilter();
+//    }
 }

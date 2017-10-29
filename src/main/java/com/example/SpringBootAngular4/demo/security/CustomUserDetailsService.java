@@ -21,7 +21,7 @@ public class CustomUserDetailsService implements UserDetailsService{
 	@Autowired
     public CustomUserDetailsService(UserRepository userRepository,UserRolesRepository userRolesRepository) {
         this.userRepository = userRepository;
-        this.userRolesRepository=userRolesRepository;
+        this.userRolesRepository = userRolesRepository;
     }
 	
         
@@ -30,8 +30,8 @@ public class CustomUserDetailsService implements UserDetailsService{
 		UserDomain user = userRepository.findByName(username);
 		if(null == user){
 			throw new UsernameNotFoundException("No user present with username: "+username);
-		}else{
-			List<String> userRoles=userRolesRepository.findRoleByUserName(username);
+		} else {
+			List<String> userRoles = userRolesRepository.findRoleByUserName(username);
 			return new CustomUserDetails(user,userRoles);
 		}
 	}
