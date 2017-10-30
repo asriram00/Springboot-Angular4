@@ -9,14 +9,14 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
-public class SpringBootAngular2Application extends SpringBootServletInitializer {
+public class SpringBootAngular4Application extends SpringBootServletInitializer {
 	
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-		return application.sources(SpringBootAngular2Application.class);
+		return application.sources(SpringBootAngular4Application.class);
 	}
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringBootAngular2Application.class, args);
+		SpringApplication.run(SpringBootAngular4Application.class, args);
 	}
 }

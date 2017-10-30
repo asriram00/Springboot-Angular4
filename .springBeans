@@ -7,7 +7,6 @@
 	</configSuffixes>
 	<enableImports><![CDATA[false]]></enableImports>
 	<configs>
-		<config>java:com.example.SpringBootAngular4.demo.SpringBootAngular2Application</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>
