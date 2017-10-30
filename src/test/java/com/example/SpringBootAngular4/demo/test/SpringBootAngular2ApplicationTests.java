@@ -1,4 +1,4 @@
-package com.example.SpringBootAngular2.demo;
+package com.example.SpringBootAngular4.demo.test;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
