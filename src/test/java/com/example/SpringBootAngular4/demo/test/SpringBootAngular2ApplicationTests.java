@@ -1,5 +1,7 @@
 package com.example.SpringBootAngular4.demo.test;
 
+import static org.junit.Assert.assertSame;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -10,7 +12,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class SpringBootAngular2ApplicationTests {
 
 	@Test
-	public void contextLoads() {
-	}
+    public void testDummy() {
+		assertSame("true", true, true);
+    }
 
 }
